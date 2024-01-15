@@ -1,6 +1,6 @@
 package com.atguigu.connection;
 
-import com.atguigu.objects.Country;
+import com.atguigu.bean.Country;
 import org.junit.Test;
 
 import java.io.IOException;

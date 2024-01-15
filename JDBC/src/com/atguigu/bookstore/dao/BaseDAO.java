@@ -14,11 +14,8 @@ import java.util.List;
  * @description: DAO: Data Access object，访问数据信息的类和接口，包括了对数据的CRUD而不包含任何业务相关的信息。又称作 BaseDAO
  * 作用： 实现功能模块化；更利于代码的维护和升级
  */
-public abstract class BaseDAO {
-
-    /**
-     * 通用的增删改操作---version 2.0 （考虑上事务）
-     */
+public abstract class BaseDAO<T> {
+    // 通用的增删改操作---version 2.0 （考虑上事务）
     public int update(Connection conn, String sql, Object... args) {// sql中占位符的个数与可变形参的长度相同！
         PreparedStatement ps = null;
         try {
@@ -41,9 +38,7 @@ public abstract class BaseDAO {
 
     }
 
-    /**
-     * 通用的查询操作，用于返回数据表中的一条记录（version 2.0：考虑上事务）
-     */
+    // 通用的查询操作，用于返回数据表中的一条记录（version 2.0：考虑上事务）
     public <T> T getInstance(Connection conn, Class<T> clazz, String sql, Object... args) {
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -87,15 +82,11 @@ public abstract class BaseDAO {
 
         return null;
     }
-
-    /**
-     * 通用的查询操作，用于返回数据表中的多条记录构成的集合（version 2.0：考虑上事务）
-     */
+    // 通用的查询操作，用于返回数据表中的多条记录构成的集合（version 2.0：考虑上事务）
     public <T> List<T> getForList(Connection conn, Class<T> clazz, String sql, Object... args) {
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
-
             ps = conn.prepareStatement(sql);
             for (int i = 0; i < args.length; i++) {
                 ps.setObject(i + 1, args[i]);
@@ -137,10 +128,7 @@ public abstract class BaseDAO {
 
         return null;
     }
-
-    /**
-     * 用于查询特殊值的通用的方法
-     */
+    //用于查询特殊值的通用的方法
     public <E> E getValue(Connection conn,String sql,Object...args){
         PreparedStatement ps = null;
         ResultSet rs = null;

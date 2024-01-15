@@ -1,4 +1,4 @@
-package com.atguigu.objects;
+package com.atguigu.bean;
 
 import java.sql.Blob;
 import java.util.Date;

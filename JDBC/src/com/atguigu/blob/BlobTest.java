@@ -1,6 +1,6 @@
 package com.atguigu.blob;
 
-import com.atguigu.objects.Customer;
+import com.atguigu.bean.Customer;
 import com.atguigu.utils.JDBCUtils;
 import org.junit.Test;
 

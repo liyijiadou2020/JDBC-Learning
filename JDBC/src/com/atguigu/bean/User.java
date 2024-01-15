@@ -1,4 +1,4 @@
-package com.atguigu.objects;
+package com.atguigu.bean;
 
 /**
  * @author: liyijia
